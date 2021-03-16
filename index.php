@@ -36,16 +36,30 @@ class Client {
         $this->password = $password;
     }
 
-}
-
-class Client extends Payments {
+    public function acquistaProdotto($prodotto,$pagamento);
 
 }
 
-class Product extends Payments {
+// class Client extends Payments {
+//
+// }
+//
+// class Product extends Payments {
+//
+// }
+
+class Payments{
+
+    public $price;
+
+    public $card;
+
+    public function __construct($price, string $card) {
+        $this->price = $price;
+        $this->card = $card;
+    }
 
 }
-
 
 
 $forno = new Product('Forno', '100$', 'Elettrodomestici');
@@ -55,3 +69,8 @@ echo "<br><br>";
 
 $cliente1 = new Client('andrea', 'lamanna', 'anlam@gm.it', 'Lamaan007');
 var_dump($cliente1);
+
+echo "<br><br>";
+
+$pagamento1 = new Payments($forno->price, 'visa');
+var_dump($pagamento1);
