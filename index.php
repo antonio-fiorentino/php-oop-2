@@ -19,5 +19,28 @@ class Product {
 
 }
 
+class Client {
+
+    public $name;
+
+    public $surname;
+
+    public $email;
+
+    public $password;
+
+    public function __construct($name, $surname, $email, $password) {
+        $this->name = $name;
+        $this->price = $price;
+        $this->email = $email;
+        $this->password = $password;
+    }
+
+}
+
+
+
 $forno = new Product('Forno', '100$', 'Elettrodomestici');
 var_dump($forno);
+
+$
