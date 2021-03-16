@@ -36,9 +36,6 @@ class Client {
         $this->password = $password;
     }
 
-    public function acquistaProdotto($prodotto, $pagamento){
-      echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-    }
 
 }
 
@@ -61,6 +58,15 @@ class Payments{
         $this->card = $card;
     }
 
+    public function acquistaProdotto($pagamento){
+      if ($pagamento > 50) {
+        echo "Transazione non andata a buon fine";
+      }else {
+        echo "Transazione andata a buon fine";
+      }
+    }
+
+
 }
 
 
@@ -79,4 +85,4 @@ var_dump($pagamento1);
 
 echo "<br><br>";
 
-acquistaProdotto($forno, $pagamento1);
+acquistaProdotto($forno->price);
