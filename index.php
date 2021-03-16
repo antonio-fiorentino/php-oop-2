@@ -36,7 +36,9 @@ class Client {
         $this->password = $password;
     }
 
-    public function acquistaProdotto($prodotto,$pagamento);
+    public function acquistaProdotto($prodotto, $pagamento){
+      echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+    }
 
 }
 
@@ -74,3 +76,7 @@ echo "<br><br>";
 
 $pagamento1 = new Payments($forno->price, 'visa');
 var_dump($pagamento1);
+
+echo "<br><br>";
+
+acquistaProdotto($forno, $pagamento1);
