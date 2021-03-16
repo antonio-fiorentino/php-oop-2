@@ -11,7 +11,7 @@ class Product {
 
     public $category;
 
-    public function __construct(string $name, $price, string $category) {
+    public function __construct(string $name, int $price, string $category) {
         $this->name = $name;
         $this->price = $price;
         $this->category = $category;
@@ -29,11 +29,37 @@ class Client {
 
     public $password;
 
-    public function __construct(string $name, string $surname, string $email, string $password) {
+    public $balance;
+
+    public function __construct(string $name, string $surname, string $email, string $password, int $balance) {
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
         $this->password = $password;
+        $this->balance = $balance;
+    }
+
+
+}
+
+
+class Payments{
+
+    public $price;
+
+    public $card;
+
+    public function __construct(int $price, string $card) {
+        $this->price = $price;
+        $this->card = $card;
+    }
+
+    public function buyProduct($productPrice, $balance){
+      if ($productPrice <= $balance) {
+        echo "Transazione andata a buon fine";
+      }else {
+        echo "Transazione non andata a buon fine";
+      }
     }
 
 
@@ -47,27 +73,6 @@ class Client {
 //
 // }
 
-class Payments{
-
-    public $price;
-
-    public $card;
-
-    public function __construct($price, string $card) {
-        $this->price = $price;
-        $this->card = $card;
-    }
-
-    public function acquistaProdotto($pagamento){
-      if ($pagamento > 50) {
-        echo "Transazione non andata a buon fine";
-      }else {
-        echo "Transazione andata a buon fine";
-      }
-    }
-
-
-}
 
 
 $forno = new Product('Forno', '100$', 'Elettrodomestici');
@@ -75,7 +80,7 @@ var_dump($forno);
 
 echo "<br><br>";
 
-$cliente1 = new Client('andrea', 'lamanna', 'anlam@gm.it', 'Lamaan007');
+$cliente1 = new Client('andrea', 'lamanna', 'anlam@gm.it', 'Lamaan007', '50');
 var_dump($cliente1);
 
 echo "<br><br>";
@@ -85,4 +90,4 @@ var_dump($pagamento1);
 
 echo "<br><br>";
 
-acquistaProdotto($forno->price);
+buyProduct($forno->price, $cliente1->balance);
