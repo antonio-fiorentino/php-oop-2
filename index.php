@@ -65,13 +65,6 @@ class Payments{
 
 }
 
-// class Client extends Payments {
-//
-// }
-//
-// class Product extends Payments {
-//
-// }
 
 
 
@@ -90,4 +83,4 @@ var_dump($pagamento1);
 
 echo "<br><br>";
 
-buyProduct($forno->price, $cliente1->balance);
+$pagamento1->buyProduct($forno->price, $cliente1->balance);
